@@ -8,7 +8,7 @@ http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 var builder = require("botbuilder");
 var botbuilder_azure = require("botbuilder-azure");
 var weatherUtil = require("./Alexa Weather Library/weatherUtil");
-var sprintf = require("sprintf-js").sprintf;  //This is a fake comment
+var sprintf = require("sprintf-js").sprintf;  
 
 var city;
 var state;
@@ -190,7 +190,7 @@ bot.dialog("/getEntities", [
     }
 ]);
 
-sonnyBot.dialog("/askState", [
+bot.dialog("/askState", [
     function askState(session, args, next){
         if (!state) {
             builder.Prompts.text(session, "> Which state is " + session.userData.city + " located in?");
@@ -204,7 +204,7 @@ sonnyBot.dialog("/askState", [
     }    
 ]);
 
-sonnyBot.dialog("/askDate", [
+bot.dialog("/askDate", [
     function askDate(session, args, next){
         if (!date){
             builder.Prompts.text(session, "> For which date? (xxxx-yy-dd) or 'today'");
