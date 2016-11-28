@@ -87,12 +87,12 @@ bot.dialog("/getEntities", [
             console.log("\tThe intent is '%s' with a score of %s", args.intents[0].intent, args.intents[0].score);
             console.log("\tThere are %s entities.", args.entities.length);
             for (var i = 0; i < args.entities.length; i++) {
-                if (args.entities[i].type == 'builtin.datetime.date') {
+                if (args.entities[i].type == 'datetime.date') {
                     var resDate = args.entities[i].resolution.date ? args.entities[i].resolution.date : "NO_DATE";
                     var resTime = args.entities[i].resolution.time ? args.entities[i].resolution.time : "NO_TIME";
                     console.log("\tEntity %s is of type '%s' with value '%s' and resolution date '%s' and resolution time '%s'", i, args.entities[i].type, args.entities[i].entity, resDate, resTime);
                 } else {
-                    if (args.entities[i].type == 'builtin.datetime.time') {
+                    if (args.entities[i].type == 'datetime.time') {
                         var resDate = args.entities[i].resolution.date ? args.entities[i].resolution.date : "NO_DATE";
                         var resTime = args.entities[i].resolution.time ? args.entities[i].resolution.time : "NO_TIME";
                         console.log("\tEntity %s is of type '%s' with value '%s' and resolution date '%s' and resolution time '%s'", i, args.entities[i].type, args.entities[i].entity, resDate, resTime);
@@ -106,13 +106,13 @@ bot.dialog("/getEntities", [
         // This is used to decide if a message was a valid weather request or not
         session.userData.entityCount = 0;
         // Resolve and store any entities passed from LUIS.
-        city = builder.EntityRecognizer.findEntity(args.entities, "builtin.geography.city");
+        city = builder.EntityRecognizer.findEntity(args.entities, "geography.city");
         if (!city) {
-            // Nothing of entity type builtin.geography.city.  Try entity_location.
+            // Nothing of entity type geography.city.  Try entity_location.
             city = builder.EntityRecognizer.findEntity(args.entities, "entity_location");
         }
-        state = builder.EntityRecognizer.findEntity(args.entities, "builtin.geography.us_state");
-        date = builder.EntityRecognizer.findEntity(args.entities, "builtin.datetime.date");
+        state = builder.EntityRecognizer.findEntity(args.entities, "geography.us_state");
+        date = builder.EntityRecognizer.findEntity(args.entities, "datetime.date");
         var entity;
         // Did LUIS find a city? 
         if (!city) {
