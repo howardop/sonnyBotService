@@ -34,7 +34,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 */
 .matches('small talk greeting', 
     function (session, args) {
-    session.send("> " + "Hello.  I am Sonny the weather bot.  How may I help you?");
+    session.send("> " + "Hello.  I am Sonny the super duper weather bot.  How may I help you?");
 })
 .matches('small talk farewell', 
     function (session, args, next) {
