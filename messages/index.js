@@ -32,6 +32,8 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
+
+/* Sonny intents added to bot created by Bot Service  */
 .matches('small talk greeting', 
     function (session, args) {
     session.send("> " + "Hello.  I am Sonny the great weather bot.  How may I help you?");
@@ -41,11 +43,12 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     // This is farewell so we'll end the dialog with a farewell message
     session.send("> " + "Goodbye.  It was my pleasure to serve you."); 
 })
+/***************************************************/
 .matches('None', (session, args) => {
     session.send('Hi! This is the None intent handler. You said: \'%s\'.', session.message.text);
 })
 .onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
+    session.send('Sorry, I did not understand \'%s\'.  Please rephrase your statement', session.message.text);
 });
 
 bot.dialog('/', intents);    
