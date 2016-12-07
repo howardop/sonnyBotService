@@ -36,7 +36,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /* Sonny intents added to bot created by Bot Service  */
 .matches('small talk greeting', 
     function (session, args) {
-    session.send("> " + "Hello.  I am Sonny the friendly weather bot.  How may I help you?");
+    session.send("> " + "Hello.  I am Sonny the fantastic weather bot.  How may I help you?");
 })
 .matches('small talk farewell', 
     function (session, args, next) {
